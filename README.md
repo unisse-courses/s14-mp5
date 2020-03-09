@@ -1,1 +1,5 @@
-# s14-mp5
+# Vanguard
+
+## Team Members:
+
+* Chua, Kerby

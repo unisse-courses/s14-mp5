@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Vanguard Login</title>
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script type="text/javascript" src="../js/loginPage.js"></script>
+        <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+        <style>
+            .loginForm {
+                background: #bfbfbf;
+                display:block;
+                width:40%;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 20px 40px 30px 40px;
+                font-weight: 400;
+                border: 1px solid #ced4da;
+                border-radius: 8px;
+                opacity: 0.9;
+            }
+
+            button.register, input[id="login"] {
+                border-radius: 12px;
+                width: 20%;
+                border: 0px solid;
+                color: #0066ff;
+            }
+
+            .modal-body > input {
+                margin-bottom: 5px;
+            }
+        </style>
+    </head>
+    <body style="background-image: url('../resources/loginBG.jpg'); background-repeat: no-repeat; background-size: cover">
+        <div class="container">
+            <!-- Login Form -->
+            <div class="h3" style="text-align: center; padding-top: 20%">
+                Vanguard
+            </div>
+            <div class="loginForm">
+                <form method="post" action="./marketplace.html">
+                    <label for="username">Username</label>
+                    <span style="float: right"><input type="checkbox">Remember Me</input></span><br>
+                    <input class="form-control" type="text" name="username" id="username">
+                    <label for="password">Password</label><br>
+                    <input class="form-control" type="password" name="password" id="password"><br>
+
+                    <a href="/forgot_password.html" target="_blank">Forgot password</a>
+                    <button type="button" class="btn btn-light register" style="float:right;" data-toggle="modal" data-target="#registerForm">Register</button>
+                    <input type="submit" class="btn btn-light" id="login" style="float:right; margin-right:2.5%;" value="Login">
+                </form>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="modal fade" id="registerForm">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Sign Up</h4>
+                        </div>
+                        <div class="modal-body">
+                            <input class="form-control" type="email" name="remail" id="remail" placeholder="Enter email address">
+                            <input class="form-control" type="text" name="rusername" id="rusername" placeholder="Enter username">
+                            <input class="form-control" type="password" name="rpwd" id="rpwd" placeholder="Enter password">
+                            <input class="form-control" type="password" name="rcpwd" id="rcpwd" placeholder="Re-enter password">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" id="register">Register</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
