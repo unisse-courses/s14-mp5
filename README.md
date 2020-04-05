@@ -11,5 +11,5 @@ Vanguard is a weapon and armor manufacturing company that sells quality equipmen
 ## Running the application
 1. Clone the repository
 2. Install the dependencies: `npm install`
-3. Start your MongoDB instance. This repo works on an instance running on `localhost:3000`
-4. Start the application: `node index.js`
+3. Start the application: `node index.js`
+4. This repo works on an instance running on `localhost:3000`
