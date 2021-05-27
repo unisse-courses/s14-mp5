@@ -6,12 +6,13 @@ html {
 body {
   background-color: black !important;
   color: white !important;
+  font-family: 'Montserrat', sans-serif;
 }
 /* End General */
 
 /* Fonts */
-.MateSC {
-  font-family: 'Mate SC', serif;
+.Roboto {
+  font-family: 'Roboto', sans-serif;
 }
 /* End Fonts */
 
@@ -38,7 +39,6 @@ body {
 }
 
 .nameplate-title {
-  font-family: 'Mate SC', serif;
   font-size: 5.5rem;
 }
 
@@ -66,12 +66,12 @@ body {
 
 /* Login */
 .login-container {
-  padding: 5rem 0 5rem 0;
+  padding: 9rem 0 5rem 0;
   text-align: center;
 }
 
 .login-card {
-  padding: 9rem 4rem 3rem 4rem !important;
+  padding: 9.7rem 4rem 3rem 4rem !important;
   border: none !important;
 }
 
@@ -94,6 +94,33 @@ body {
   color: #59646e;
 }
 /* End Login */
+
+/* Register */
+.register-container {
+  padding: 9rem 0 5rem 0;
+  text-align: center;
+}
+
+.register-card {
+  padding: 6rem 4rem 3rem 4rem !important;
+  border: none !important;
+}
+
+.register-card .col {
+  margin-bottom: 1rem;
+  display: table-cell;
+}
+
+.register-card .form-control {
+  border-radius: 50px !important;
+  background-color: black;
+  border-color: #343a40;
+}
+
+.register-card a:hover{
+  color: #59646e;
+}
+/* End Register */
 
 /* Customer Support */
 .contact-us {

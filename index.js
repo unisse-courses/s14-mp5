@@ -17,13 +17,26 @@ app.set('view engine', 'hbs');
 
 app.get('/', function(req, res){
   res.render('home',{
-    title: 'Vanguard'
+    title: 'Vanguard',
+    desc: 'Specialized store in supplying hunters with quality equipment and items for missions',
+    img: '/images/Vanguard.png',
+    alt_text: 'Vanguard Logo',
   });
 })
 
 app.get('/login', function(req, res){
   res.render('login', {
-    title: 'Vanguard'
+    title: 'Sign In',
+    img: '/images/Vanguard.png',
+    alt_text: 'Vanguard Logo',
+  })
+})
+
+app.get('/register', function(req, res){
+  res.render('register', {
+    title: 'Create a New Account',
+    img: '/images/Vanguard.png',
+    alt_text: 'Vanguard Logo',
   })
 })
 
