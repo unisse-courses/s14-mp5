@@ -17,12 +17,14 @@ app.set('view engine', 'hbs');
 
 app.get('/', function(req, res){
   res.render('home',{
-      title: "Welcome, Hunter!",
-      table1: "Mission",
-      table1content: "<p>Vanguard is a specialized store in supplying Hunters with quality weapons, armors, charms, and other equipments and items that would necessary in their missions.</p> <p>This store was founded by not only a highly-skilled Craftsman, but a high-tier Hunter as well.</p>",
-      table2: "Vision",
-      table2content: "<p>Vanguard's aim is to supply every Hunter in the world with quality items so that the mortality rate of those heroes would decrease in the coming times. </p>"
+    title: 'Vanguard'
   });
+})
+
+app.get('/login', function(req, res){
+  res.render('login', {
+    title: 'Vanguard'
+  })
 })
 
 // launch app

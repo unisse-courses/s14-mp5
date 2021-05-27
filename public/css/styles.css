@@ -7,6 +7,29 @@ body {
   background-color: black !important;
   color: white !important;
 }
+/* End General */
+
+/* Fonts */
+.MateSC {
+  font-family: 'Mate SC', serif;
+}
+/* End Fonts */
+
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-section {
+  background-color: #ededed;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
+/* End Footer */
 
 /* Nameplate */
 #nameplate {
@@ -22,6 +45,7 @@ body {
 .nameplate-subtitle {
   margin-bottom: 2rem;
 }
+/* End Nameplate */
 
 /* Limited Products */
 .limited-section {
@@ -38,21 +62,45 @@ body {
 .limited-item-info {
   margin-bottom: 0;
 }
+/* End Limited Products */
 
-/* Footer */
-.footer-section {
-  background-color: #ededed;
+/* Login */
+.login-container {
+  padding: 5rem 0 5rem 0;
+  text-align: center;
 }
 
-#sticky-footer {
-  flex-shrink: none;
+.login-card {
+  padding: 9rem 4rem 3rem 4rem !important;
+  border: none !important;
 }
+
+.card-body {
+  background-color: black !important;
+}
+
+.login-card .col {
+  margin-bottom: 1rem;
+  display: table-cell;
+}
+
+.login-card .form-control {
+  border-radius: 50px !important;
+  background-color: black;
+  border-color: #343a40;
+}
+
+.login-card a:hover{
+  color: #59646e;
+}
+/* End Login */
 
 /* Customer Support */
 .contact-us {
   padding: 4rem 0 2rem 0;
   text-align: center;
 }
+/* End Customer Support */
 
 /* Buttons */
 .btn {
@@ -61,6 +109,7 @@ body {
   background-color: #343a40;
   border-color: #343a40;
 }
+/* End Buttons */
 
 /* Old Code */
 a {
