@@ -15,6 +15,7 @@ app.engine('hbs', hbs({
 }));
 app.set('view engine', 'hbs');
 
+// routes
 app.get('/', function(req, res){
   res.render('home',{
     title: 'Vanguard',
@@ -37,6 +38,12 @@ app.get('/register', function(req, res){
     title: 'Create a New Account',
     img: '/images/Vanguard.png',
     alt_text: 'Vanguard Logo',
+  })
+})
+
+app.get('/marketplace', function(req, res){
+  res.render('marketplace', {
+    title: 'Marketplace'
   })
 })
 

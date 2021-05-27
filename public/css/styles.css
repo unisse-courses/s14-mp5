@@ -122,6 +122,31 @@ body {
 }
 /* End Register */
 
+/* Marketplace */
+.mktplace h1 {
+  padding-top: 2rem !important;
+}
+
+.mktplace h4 {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.mktplace hr {
+  border-width: medium !important;
+  border-color: #343a40;
+}
+
+.mktplace .form-control {
+  border-radius: 50px;
+}
+
+.mktplace .btn-search {
+  padding: 0 1rem !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+/* End Marketplace */
+
 /* Customer Support */
 .contact-us {
   padding: 4rem 0 2rem 0;
