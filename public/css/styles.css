@@ -1,0 +1,242 @@
+/* General */
+html {
+  margin: 0 auto !important;
+}
+
+body {
+  background-color: black !important;
+  color: white !important;
+}
+
+/* Nameplate */
+#nameplate {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.nameplate-title {
+  font-family: 'Mate SC', serif;
+  font-size: 5.5rem;
+}
+
+.nameplate-subtitle {
+  margin-bottom: 2rem;
+}
+
+/* Limited Products */
+.limited-section {
+  padding-bottom: 8rem;
+  text-align: center;
+}
+
+.limited-section img {
+  object-fit: cover;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.limited-item-info {
+  margin-bottom: 0;
+}
+
+/* Footer */
+.footer-section {
+  background-color: #ededed;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
+
+/* Customer Support */
+.contact-us {
+  padding: 4rem 0 2rem 0;
+  text-align: center;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 50px !important;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem !important;
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+/* Old Code */
+a {
+  display: block;
+  color:rgb(192, 192, 192);
+}
+
+td{
+  color:rgb(228, 211, 114);
+}
+
+body{
+  background-color: black;
+  color:white;
+}
+
+.orgimg {
+  height: 150px;
+  width: 150px;
+  margin: auto;
+}
+
+#profilepic{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+* {
+  box-sizing: border-box;
+}
+  
+.column {
+  float: left;
+  width: 50%;
+  padding: 0px;
+}
+  
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 0px 12px;
+}
+
+td {
+  padding: 8px 8px;
+  height: 30px;
+}
+
+#bulletinboard, .browse-wrapper, .profile-wrapper, .sell-wrapper {
+  display: none;
+  margin-top: 90px;
+}
+
+#controls {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 8px;
+}
+
+.weapon {
+  border-top: 10px solid #E69F00;
+}
+
+.armor {
+  border-top: 10px solid #56B4E9;
+}
+
+.accessory {
+  border-top: 10px solid #009E73;
+}
+
+.material {
+  border-top: 10px solid #FF4D4D;
+}
+
+.expenseItem, .comment {
+  min-height: 30px;
+  background-color: #eee;
+  display: flex;
+  padding: 8px;
+  margin: 8px;
+  align-items: center;
+}
+
+.comment {
+  border-top: 10px solid #BFBFBF;
+}
+
+.qtycol {
+  width: 20%;
+}
+
+.itemcol {
+  width: 60%;
+}
+
+.amountcol {
+  width: 20%;
+  text-align: right;
+  font-weight: 700;
+}
+
+.modal-body > input, .modal-body > select {
+  margin-bottom: 5px;
+}
+
+
+/* Home Layout */
+/* Style the header */
+header {
+  background-color: #666;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+/* End of Testing */
+iframe {
+  padding-left: 110px;
+  padding-top: 10px;
+}
