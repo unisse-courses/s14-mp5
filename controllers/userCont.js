@@ -20,8 +20,7 @@ exports.loginUser = function(req, res) {
   // no errors
   if(errors.isEmpty()) {
     const {email, password} = req.body;
-    console.log(req.body.email); // debugging
-    console.log(req.body.password); // debugging
+    // console.log(req.body.email); // debugging
 
     userModel.getOne({email: email}, function(err, user) {
       if(err) {
@@ -57,14 +56,12 @@ exports.registerUser = function(req, res) {
   const errors = validationResult(req);
   if(errors.isEmpty()) {
     const {name, email, password} = req.body;
-    console.log(req.body.name); // debugging
-    console.log(req.body.email); // debugging
-    console.log(req.body.password); // debugging
+    // console.log(req.body.email); // debugging
 
     // check for existing user ? flash email address is already in use : create new user and redirect to login
     userModel.getOne({email: email}, function(err, result) {
       if(result) {
-        console.log(result); // debugging
+        // console.log(result); // debugging
         req.flash('error_msg', 'Email address is already being used.');
         res.redirect('/register');
       }
@@ -82,7 +79,7 @@ exports.registerUser = function(req, res) {
               res.redirect('/register');
             }
             else {
-              console.log(user); // debugging
+              // console.log(user); // debugging
               res.redirect('/login');
             }
           });
