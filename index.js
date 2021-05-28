@@ -45,20 +45,11 @@ app.use(function(req, res, next) {
 });
 
 // routes
-// const userRouter = require('./routes/userRoutes');
+const userRouter = require('./routes/userRoutes');
 const authRouter = require('./routes/authRoutes');
 
-// app.use('/', userRouter);
+app.use('/', userRouter);
 app.use('/', authRouter);
-
-app.get('/', function(req, res){
-  res.render('home',{
-    title: 'Vanguard',
-    desc: 'Specialized store in supplying hunters with quality equipment and items for missions',
-    img: '/images/Vanguard.png',
-    alt_text: 'Vanguard Logo',
-  });
-})
 
 app.get('/marketplace', function(req, res){
   res.render('marketplace', {
