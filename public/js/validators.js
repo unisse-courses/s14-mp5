@@ -27,7 +27,25 @@ const registerValidation = [
   })
 ];
 
+const productValidation = [
+  // Product name should not be empty
+  body('pName').notEmpty().withMessage('Product name is required.'),
+  // Product description should not be empty
+  body('pDesc').notEmpty().withMessage('Product description is required.'),
+  // Product name should not be empty
+  body('pCateg').notEmpty().withMessage('Product category is required.'),
+  // Product name should not be empty
+  body('pPrice').notEmpty().withMessage('Product price is required.')
+];
+
+const purchaseValidation = [
+  body('billing').notEmpty().withMessage('Billing address is required.'),
+  body('shipping').notEmpty().withMessage('Shipping address is required.')
+];
+
 module.exports = {
   loginValidation,
-  registerValidation
+  registerValidation,
+  productValidation,
+  purchaseValidation
 };
