@@ -64,6 +64,64 @@ body {
 .products-price {
   font-size: small;
 }
+
+.product-details .card
+{
+  background-color: transparent;
+  border: none;
+}
+
+#itemQty {
+  width: 50px;
+  text-align: center;
+  background-color: #343a40;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+.quantity.buttons_added
+{
+  display: flex;
+  text-align: left;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: top;
+  padding-bottom: 1rem;
+}
+
+.quantity.buttons_added input
+{
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  box-shadow: none;
+}
+ 
+.quantity.buttons_added .rounded-start {
+  border-radius: 25px 0px 0px 25px !important;
+}
+
+.quantity.buttons_added .rounded-end {
+  border-radius: 0px 25px 25px 0px !important;
+}
+
+.quantity.buttons_added .minus,
+.quantity.buttons_added .plus
+{
+  padding: 0.5rem 1rem 0.5rem;
+  height: 41px;
+  cursor: pointer;
+}
+
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button,
+.quantity input[type=number]
+{
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  margin: 0;
+}
 /* End Product Details*/
 
 /* Add Product */
@@ -168,6 +226,7 @@ body {
   padding: 0 1rem !important;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
+  height: 38px;
 }
 /* End Marketplace */
 

@@ -210,11 +210,11 @@ exports.getAProduct = function(req, res) {
     }
     else {
       res.render('productDetails', {
-        title: 'Marketplace',
+        title: product.name,
         username: req.session.name,
         name: product.name,
         desc: product.description,
-        image: '/' + product.image,
+        image: product.image,
         price: product.price,
         _id: product._id,
         loggedIn: req.session.user,

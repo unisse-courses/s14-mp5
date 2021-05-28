@@ -22,10 +22,6 @@ function changeQty(valueChange){
   }
 }
 
-$(".btnCart").on("click", function(button){
-  cartBtnClick(button.target.id);
-})
-
 $(function() {
   $("#noFilterRadio").prop("checked", true);
   $("#nameRadio").prop("checked", true);
