@@ -54,6 +54,7 @@ exports.addProduct = function(req, res) {
           category: categ,
           price: Math.round(price*100)/100.0,
           limited: false,
+          hidden: false,
           image: image
         };
         productModel.create(newProduct, function(err, product) {
@@ -131,7 +132,7 @@ exports.editProduct = (req, res) => {
 
 // This functions gets all the products from the database 
 exports.getAllProducts = function(req, res) {
-  var query;
+  var query = {hidden: false};
   var sort = {name: 1};
   if (req.body.category && req.body.category != 'No Filter') {
     query.category = req.body.category;
@@ -167,12 +168,15 @@ exports.getAllProducts = function(req, res) {
 
 // refresh product list
 exports.refreshProducts = function(req, res) {
-  var query;
+  var query = {hidden: false};
   var sort = {name: 1};
   if (req.body.category && req.body.category != 'No Filter') {
     query.category = req.body.category;
   }
-
+  if (req.body.name && req.body.name != '') {
+    query.name = req.body.name;
+  }
+  
   if (req.body.sort && req.body.sort != 'name') {
     if (req.body.sort == "asc") {
       sort = {price: 1, name: 1}
