@@ -17,7 +17,7 @@ router.get('/login', isPublic, function(req, res) {
 // Register GET method
 router.get('/register', isPublic, function(req, res) {
   res.render('register', {
-    title: 'Create a New Account',
+    title: 'Create Account',
     img: '/images/Vanguard.png',
     alt_text: 'Vanguard Logo',
   });

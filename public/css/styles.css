@@ -148,12 +148,12 @@ body {
 
 /* Login */
 .login-container {
-  padding: 9rem 0 5rem 0;
+  padding: 5rem 0 5rem 0;
   text-align: center;
 }
 
 .login-card {
-  padding: 9.7rem 4rem 3rem 4rem !important;
+  padding: 12.5rem 4rem 3rem 4rem !important;
   border: none !important;
 }
 
@@ -170,6 +170,7 @@ body {
   border-radius: 50px !important;
   background-color: black;
   border-color: #343a40;
+  color: rgb(200, 200, 200);
 }
 
 .login-card a:hover{
@@ -179,12 +180,12 @@ body {
 
 /* Register */
 .register-container {
-  padding: 9rem 0 5rem 0;
+  padding: 5rem 0 5rem 0;
   text-align: center;
 }
 
 .register-card {
-  padding: 6rem 4rem 3rem 4rem !important;
+  padding: 9rem 4rem 3rem 4rem !important;
   border: none !important;
 }
 
@@ -197,6 +198,7 @@ body {
   border-radius: 50px !important;
   background-color: black;
   border-color: #343a40;
+  color: rgb(200, 200, 200);
 }
 
 .register-card a:hover{
