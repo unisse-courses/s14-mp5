@@ -155,7 +155,7 @@ exports.getAllProducts = function(req, res) {
 
     console.log(products);
     res.render('marketplace', {
-      name: req.session.name,
+      username: req.session.name,
       title: 'Marketplace',
       products: products,
       loggedIn: req.session.user,
