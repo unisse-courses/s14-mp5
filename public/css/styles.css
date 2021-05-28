@@ -66,6 +66,28 @@ body {
 }
 /* End Product Details*/
 
+/* Add Product */
+.add-prod-container {
+  padding: 3rem 0 5rem 0;
+}
+
+.add-prod-card {
+  padding: 5.7rem 4rem 3rem 4rem !important;
+  border: none !important;
+}
+
+.add-prod-card .col {
+  margin-bottom: 1rem;
+  display: table-cell;
+}
+
+.add-prod-card .form-control {
+  border-radius: 50px !important;
+  background-color: black;
+  border-color: #343a40;
+}
+/* End Add Product */
+
 /* Login */
 .login-container {
   padding: 9rem 0 5rem 0;

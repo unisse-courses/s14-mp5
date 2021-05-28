@@ -29,13 +29,13 @@ const registerValidation = [
 
 const productValidation = [
   // Product name should not be empty
-  body('pName').notEmpty().withMessage('Product name is required.'),
+  body('name').notEmpty().withMessage('Product name is required.'),
   // Product description should not be empty
-  body('pDesc').notEmpty().withMessage('Product description is required.'),
+  body('desc').notEmpty().withMessage('Product description is required.'),
   // Product name should not be empty
-  body('pCateg').notEmpty().withMessage('Product category is required.'),
+  body('categ').notEmpty().withMessage('Product category is required.'),
   // Product name should not be empty
-  body('pPrice').notEmpty().withMessage('Product price is required.')
+  body('price').notEmpty().withMessage('Product price is required.')
 ];
 
 const purchaseValidation = [

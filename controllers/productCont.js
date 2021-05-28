@@ -1,6 +1,7 @@
 // imports
 const productModel = require('../models/productModel');
 const {validationResult} = require('express-validator');
+const {productValidation} = require('../public/js/validators');
 const multer = require('multer');
 
 // prep file upload module
@@ -23,8 +24,8 @@ exports.addProduct = function(req, res) {
   if(errors.isEmpty()) {
     // prep product info
     var image;
-    var {pName, pDesc, pCateg, pPrice} = req.body;
-    var slug = req.body.pName.replace(/\s+/g, '-').toLowerCase();
+    var {name, desc, categ, price} = req.body;
+    var slug = req.body.name.replace(/\s+/g, '-').toLowerCase();
 
     if(req.file == undefined || req.file == null || req.file == "") {
       req.flash('error_msg', "Please upload an image.");
@@ -47,11 +48,11 @@ exports.addProduct = function(req, res) {
       }
       else {
         const newProduct = {
-          name: pName,
+          name: name,
           slug: slug,
-          description: pDesc,
-          category: pCateg,
-          price: Math.round(pPrice*100)/100.0,
+          description: desc,
+          category: categ,
+          price: Math.round(price*100)/100.0,
           limited: false,
           image: image
         };
