@@ -3,7 +3,7 @@ const router = require('express').Router();
 // const cartController = require('../controllers/cartCont');
 const productController = require('../controllers/productCont');
 // const purchaseController = require('../controllers/purchaseCont');
-// const {purchaseValidation} = require('../public/js/validators.js')
+const {productValidation} = require('../public/js/validators.js')
 const {isPublic, isPrivate} = require('../middlewares/auth.js');
 const multer = require('multer');
 
@@ -40,7 +40,7 @@ router.get('/add_new_product', isPrivate, function(req, res) {
     alt_text: 'Vanguard logo'
   });
 });
-router.post('/add_new_product', isPrivate, upload.single('image'), productController.addProduct);
+router.post('/add_new_product', isPrivate, productValidation, upload.single('image'), productController.addProduct);
 
 
 // export entire module

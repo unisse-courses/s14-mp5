@@ -130,7 +130,7 @@ body {
 }
 
 .add-prod-card {
-  padding: 5.7rem 4rem 3rem 4rem !important;
+  padding: 8rem 4rem 3rem 4rem !important;
   border: none !important;
 }
 
@@ -143,6 +143,7 @@ body {
   border-radius: 50px !important;
   background-color: black;
   border-color: #343a40;
+  color: rgb(200, 200, 200);
 }
 /* End Add Product */
 
