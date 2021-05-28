@@ -20,7 +20,7 @@ exports.create = function(object, next) {
   const product = new productModel(object);
   product.save(function(err, product) {
     if(err) throw err;
-    next(err, user);
+    next(err, product);
   });
 };
 
