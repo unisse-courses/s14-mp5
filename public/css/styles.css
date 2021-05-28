@@ -58,11 +58,13 @@ body {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
 }
-
-.limited-item-info {
-  margin-bottom: 0;
-}
 /* End Limited Products */
+
+/* Product Details */
+.products-price {
+  font-size: small;
+}
+/* End Product Details*/
 
 /* Login */
 .login-container {
