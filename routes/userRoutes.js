@@ -1,8 +1,8 @@
 // imports
 const router = require('express').Router();
-// const cartController = require('../controllers/cartCont');
+const cartController = require('../controllers/cartCont');
 const productController = require('../controllers/productCont');
-// const purchaseController = require('../controllers/purchaseCont');
+const orderController = require('../controllers/orderCont');
 const {productValidation} = require('../public/js/validators.js')
 const {isPublic, isPrivate} = require('../middlewares/auth.js');
 const multer = require('multer');
@@ -41,6 +41,16 @@ router.get('/add_new_product', isPrivate, function(req, res) {
   });
 });
 router.post('/add_new_product', isPrivate, productValidation, upload.single('image'), productController.addProduct);
+
+// Checkout
+router.get('/checkout', isPrivate, cartController.checkout);
+router.post('/checkout', isPrivate, orderController.checkout);
+
+// Order History
+router.get('/order_history', isPrivate, orderController.getOrderHistory);
+
+// Order Details
+router.get('/order_details/:slug', isPrivate, orderController.getOrderDetails);
 
 
 // export entire module

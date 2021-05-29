@@ -55,6 +55,7 @@ exports.getByUser = function(user, next) {
 
             product['name'] = item.name;
             product['image'] = item.image;
+            product['unitPrice'] = item.price;
             product['subPrice'] = subPrice.toFixed(2);
             product['qty'] = cart.prod[index].qty;
             product['id'] = item._id;

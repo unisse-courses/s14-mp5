@@ -38,14 +38,8 @@ const productValidation = [
   body('price').notEmpty().withMessage('Product price is required.')
 ];
 
-const purchaseValidation = [
-  body('billing').notEmpty().withMessage('Billing address is required.'),
-  body('shipping').notEmpty().withMessage('Shipping address is required.')
-];
-
 module.exports = {
   loginValidation,
   registerValidation,
-  productValidation,
-  purchaseValidation
+  productValidation
 };

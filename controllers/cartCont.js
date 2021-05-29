@@ -59,7 +59,7 @@ exports.getUserCart = function(req, res) {
     cartModel.getByUser(user, function(err, result) {
       if(result) {
         res.render('cart', {
-          name: req.session.name,
+          username: req.session.name,
           title: "Shopping Cart", 
           loggedIn: user,
           products: result.products,
@@ -69,7 +69,7 @@ exports.getUserCart = function(req, res) {
       else {
         console.log(err);
         res.render('cart', {
-          name: req.session.name,
+          username: req.session.name,
           title: "Shopping Cart", 
           loggedIn: user,
           products: null
@@ -82,15 +82,15 @@ exports.getUserCart = function(req, res) {
   }
 }
 
-exports.getBilling = function(req, res) {
+exports.checkout = function(req, res) {
   const errors = validationResult(req);
   if(errors.isEmpty()) {
     var user = req.session.user;
     cartModel.getByUser(user, function(err, result) {
       if (result) {
-        res.render('billing', {
-          name: req.session.name,
-          title: "Billing Information", 
+        res.render('checkout', {
+          username: req.session.name,
+          title: "Checkout", 
           loggedIn: user,
           products: result.products,
           total: result.total
@@ -98,11 +98,12 @@ exports.getBilling = function(req, res) {
       }
       else {
         console.log(err);
-        res.render('billing', {
-          name: req.session.name,
-          title: "Billing Information", 
+        res.render('checkout', {
+          username: req.session.name,
+          title: "Checkout", 
           loggedIn: user,
-          products: null
+          products: null,
+          total: 0
         });
       }
     });

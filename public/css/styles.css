@@ -18,6 +18,56 @@ a {
 .vl {
   font-size: calc(1.275rem + 0.3vw);
 }
+
+.w-95 {
+  width: 95%;
+}
+
+.w-35 {
+  width: 35%;
+}
+.form-control {
+  border-radius: 50px !important;
+  background-color: black !important;
+  border-color: #343a40 !important;
+  color: rgb(200, 200, 200) !important;
+}
+
+*:focus {
+  box-shadow: none !important;
+}
+
+.leftCol, .leftCol-1, .leftCol-2 {
+  float: left;
+}
+
+.leftCol {
+  width: 50%;
+}
+
+.leftCol-1 {
+  width: 75%;
+}
+
+.leftCol-2 {
+  width: 25%;
+}
+
+.rightCol, .rightCol-1, .rightCol-2 {
+  float: left;
+}
+
+.rightCol {
+  width: 50%;
+}
+
+.rightCol-1 {
+  width: 75%;
+}
+
+.rightCol-2 {
+  width: 25%;
+}
 /* End General */
 
 /* Fonts */
@@ -144,13 +194,6 @@ a {
   margin-bottom: 1rem;
   display: table-cell;
 }
-
-.add-prod-card .form-control {
-  border-radius: 50px !important;
-  background-color: black;
-  border-color: #343a40;
-  color: rgb(200, 200, 200);
-}
 /* End Add Product */
 
 /* Login */
@@ -171,13 +214,6 @@ a {
 .login-card .col {
   margin-bottom: 1rem;
   display: table-cell;
-}
-
-.login-card .form-control {
-  border-radius: 50px !important;
-  background-color: black;
-  border-color: #343a40;
-  color: rgb(200, 200, 200);
 }
 
 .login-card a:hover{
@@ -201,13 +237,6 @@ a {
   display: table-cell;
 }
 
-.register-card .form-control {
-  border-radius: 50px !important;
-  background-color: black;
-  border-color: #343a40;
-  color: rgb(200, 200, 200);
-}
-
 .register-card a:hover{
   color: #59646e;
 }
@@ -227,15 +256,15 @@ a {
   border-color: #343a40;
 }
 
-.mktplace .form-control {
-  border-radius: 50px;
-}
-
 .mktplace .btn-search {
   padding: 0 1rem !important;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
   height: 38px;
+}
+
+.mktplace #searchInput {
+  border-radius: 25px 0px 0px 25px !important;
 }
 /* End Marketplace */
 
@@ -248,7 +277,7 @@ a {
   text-decoration: none;
 }
 
-#cart a:hover {
+#cart a:hover :not(.btn) {
   color: #59646e;
 }
 
@@ -256,6 +285,20 @@ a {
   width: 90%;
 }
 /* End Shopping Cart */
+
+/* Checkout Screen */
+#checkout .material-icons {
+  font-size: 1rem;
+}
+
+#checkout .form-control {
+  border-radius: 0.5rem !important;
+}
+
+#checkoutButtons {
+  padding-right: 2rem;
+}
+/* End Checkout Screen */
 
 /* Customer Support */
 .contact-us {

@@ -1,0 +1,83 @@
+<section id="checkout">
+  <div class="container mt-5">
+    <h4>Vanguard <span class="vl">|</span> {{title}}</h4>
+    <hr>
+    {{#if products}}
+      <form class="form-div mt-5" action="/checkout" method="POST">
+        <div class="leftCol">
+          <div class="ps-4">
+            <div class="border border-2 border-dark rounded-3 p-3">
+              <div class="row fs-5 pb-2">
+                <div class="col">
+                  <span class="material-icons">place</span> Delivery address
+                </div>
+              </div>
+              <div class="row pb-2">
+                <div class="col">
+                  <input class="form-control" placeholder="Region" type="text" id="region" name="region" required>
+                </div>
+              </div>
+              <div class="row pb-2">
+                <div class="col">
+                  <input class="form-control" placeholder="Province" type="text" id="province" name="province" required>
+                </div>
+              </div>
+              <div class="row pb-2">
+                <div class="col">
+                  <input class="form-control" placeholder="City" type="text" id="city" name="city" required>
+                </div>
+              </div>
+              <div class="row pb-2">
+                <div class="col">
+                  <input class="form-control" placeholder="Barangay" type="text" id="barangay" name="barangay" required>
+                </div>
+              </div>
+              <div class="row pb-2">
+                <div class="col">
+                  <input class="form-control" placeholder="Lot No, Building, Street, and etc..." type="text" id="address" name="address" required>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rightCol ps-5">
+          <div class="pt-3">
+            <h3>Order Summary</h3>
+            {{#each products}}
+              <div class="row">
+                <div class="col-8">
+                  {{this.qty}}x {{this.name}}
+                </div>
+                <div class="col-4 text-end pe-5">
+                  ₱{{this.subPrice}}
+                </div>
+              </div>
+            {{/each}}
+            <div class="pt-3">
+              <hr class="w-95">
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4>Total:</h4>
+              </div>
+              <div class="col text-end pe-5">
+                <h4>₱{{total}}</h4>
+              </div>
+            </div>
+            <div class="row pt-4 pb-3" id="checkoutButtons">
+              <div class="text-end">
+                <a href="/cart" class="btn btn-secondary w-35">Back to Cart</a>
+                <button type="submit" class="btn btn-secondary w-35">Place Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    {{else}}
+      <h4 class="py-4 text-center">Your shopping cart is empty</h4>
+      <div class="container text-center">
+        <a href="/marketplace" class="btn btn-secondary">Go to Marketplace</a>
+      </div>
+    {{/if}}
+  </div>
+</section>
