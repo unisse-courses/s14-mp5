@@ -241,6 +241,20 @@ body {
 .subtotal {
   text-align: right;
 }
+/* End Shopping Cart */
+
+/* Profile */
+.prfile h1 {
+  padding-top: 2rem !important;
+}
+
+.prof-card {
+  max-width: 500px;
+  margin: auto;
+  background-color:  #555a61;
+  border-radius: 25px;
+}
+/* End Profile */
 
 /* Customer Support */
 .contact-us {

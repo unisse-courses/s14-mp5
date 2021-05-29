@@ -49,6 +49,7 @@ router.get('/profile', isPrivate, function(req, res) {
     title: 'Profile',
     username: req.session.name,
     loggedIn: req.session.user,
+    email: req.session.email,
     img: '/images/Vanguard.png',
     alt_text: 'Vanguard Logo',
   });
@@ -60,7 +61,6 @@ router.get('/cart', isPrivate, function(req, res) {
     title: 'Cart',
     username: req.session.name,
     loggedIn: req.session.user,
-    email: req.session.email,
     img: '/images/Vanguard.png',
     alt_text: 'Vanguard Logo',
   })
