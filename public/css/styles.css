@@ -233,6 +233,15 @@ body {
 }
 /* End Marketplace */
 
+/* Shopping Cart */
+.cart h1 {
+  padding-top: 2rem !important;
+}
+
+.subtotal {
+  text-align: right;
+}
+
 /* Customer Support */
 .contact-us {
   padding: 4rem 0 6rem 0;
