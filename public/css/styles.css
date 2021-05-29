@@ -7,6 +7,16 @@ body {
   background-color: black !important;
   color: white !important;
   font-family: 'Montserrat', sans-serif;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+a {
+  color:rgb(192, 192, 192);
+}
+
+.vl {
+  font-size: calc(1.275rem + 0.3vw);
 }
 /* End General */
 
@@ -49,7 +59,7 @@ body {
 
 /* Limited Products */
 .limited-section {
-  padding-bottom: 8rem;
+  padding-bottom: 4rem;
   text-align: center;
 }
 
@@ -61,10 +71,6 @@ body {
 /* End Limited Products */
 
 /* Product Details */
-.products-price {
-  font-size: small;
-}
-
 .product-details .card
 {
   background-color: transparent;
@@ -233,6 +239,24 @@ body {
 }
 /* End Marketplace */
 
+/* Shopping Cart */
+#cart img {
+  width: 155px;
+}
+
+#cart a {
+  text-decoration: none;
+}
+
+#cart a:hover {
+  color: #59646e;
+}
+
+#CartBreakdown hr {
+  width: 90%;
+}
+/* End Shopping Cart */
+
 /* Customer Support */
 .contact-us {
   padding: 4rem 0 6rem 0;
@@ -248,182 +272,3 @@ body {
   border-color: #343a40;
 }
 /* End Buttons */
-
-/* Old Code */
-a {
-  display: block;
-  color:rgb(192, 192, 192);
-}
-
-td{
-  color:rgb(228, 211, 114);
-}
-
-body{
-  background-color: black;
-  color:white;
-}
-
-.orgimg {
-  height: 150px;
-  width: 150px;
-  margin: auto;
-}
-
-#profilepic{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-
-* {
-  box-sizing: border-box;
-}
-  
-.column {
-  float: left;
-  width: 50%;
-  padding: 0px;
-}
-  
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.float-left {
-  float: left;
-}
-
-.float-right {
-  float: right;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-body {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 0px 12px;
-}
-
-td {
-  padding: 8px 8px;
-  height: 30px;
-}
-
-#bulletinboard, .browse-wrapper, .profile-wrapper, .sell-wrapper {
-  display: none;
-  margin-top: 90px;
-}
-
-#controls {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin: 8px;
-}
-
-.weapon {
-  border-top: 10px solid #E69F00;
-}
-
-.armor {
-  border-top: 10px solid #56B4E9;
-}
-
-.accessory {
-  border-top: 10px solid #009E73;
-}
-
-.material {
-  border-top: 10px solid #FF4D4D;
-}
-
-.expenseItem, .comment {
-  min-height: 30px;
-  background-color: #eee;
-  display: flex;
-  padding: 8px;
-  margin: 8px;
-  align-items: center;
-}
-
-.comment {
-  border-top: 10px solid #BFBFBF;
-}
-
-.qtycol {
-  width: 20%;
-}
-
-.itemcol {
-  width: 60%;
-}
-
-.amountcol {
-  width: 20%;
-  text-align: right;
-  font-weight: 700;
-}
-
-.modal-body > input, .modal-body > select {
-  margin-bottom: 5px;
-}
-
-
-/* Home Layout */
-/* Style the header */
-header {
-  background-color: #666;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  text-align: center;
-  font-size: 35px;
-  color: white;
-}
-
-/* Container for flexboxes */
-section {
-  display: -webkit-flex;
-  display: flex;
-}
-
-/* Style the content */
-article {
-  -webkit-flex: 3;
-  -ms-flex: 3;
-  flex: 3;
-  background-color: #f1f1f1;
-  padding: 10px;
-}
-
-/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
-@media (max-width: 600px) {
-  section {
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-}
-/* End of Testing */
-iframe {
-  padding-left: 110px;
-  padding-top: 10px;
-}
