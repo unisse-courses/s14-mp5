@@ -9,6 +9,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   overflow-y: auto;
   overflow-x: hidden;
+  padding-bottom: 6rem;
 }
 
 a {
@@ -315,7 +316,7 @@ a {
 
 /* Customer Support */
 .contact-us {
-  padding: 4rem 0 6rem 0;
+  padding: 4rem 0 0 0;
   text-align: center;
 }
 /* End Customer Support */
