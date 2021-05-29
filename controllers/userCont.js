@@ -34,6 +34,7 @@ exports.loginUser = function(req, res) {
             if(result) {
               req.session.user = user._id;
               req.session.name = user.name;
+              req.session.email = user.email;
               res.redirect('/');
             }
           })

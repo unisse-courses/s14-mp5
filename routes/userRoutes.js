@@ -34,6 +34,7 @@ router.get('/product_details/:slug', isPublic, productController.getAProduct);
 // Add Product
 router.get('/add_new_product', isPrivate, function(req, res) {
   res.render('addProduct', {
+    title: 'Add Product',
     username: req.session.name,
     loggedIn: req.session.user,
     img: '/images/Vanguard.png',
@@ -52,6 +53,17 @@ router.get('/order_history', isPrivate, orderController.getOrderHistory);
 // Order Details
 router.get('/order_details/:slug', isPrivate, orderController.getOrderDetails);
 
+// Profile GET method
+router.get('/profile', isPrivate, function(req, res) {
+  res.render('profile', {
+    title: 'Profile',
+    username: req.session.name,
+    loggedIn: req.session.user,
+    email: req.session.email,
+    img: '/images/Vanguard.png',
+    alt_text: 'Vanguard Logo',
+  });
+});
 
 // export entire module
 module.exports = router;
