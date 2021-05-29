@@ -1,20 +1,25 @@
-<div class="login-container">
+<div class="register-container">
   <div class="row">
     <div class="col-sm-6">
       <div class="card border-0">
-        <img src="{{img}}" class="img-fluid" alt="{{alt_text}}">
+        <img src={{img}} class="img-fluid" alt="{{alt_text}}">
       </div>
     </div>
     <div class="col-sm-4">
       <div class="card border-0">
-        <div class="card-body login-card">
-          <form class="form-div" action="/login" method="POST">
+        <div class="card-body register-card">
+          <form class="form-div" action="/register" method="POST">
             <div class="row">
               <div class="col">
                 <h4>{{title}}</h4>
               </div>
             </div>
             {{> messages}}
+            <div class="row">
+              <div class="col">
+                <input class="form-control" placeholder="Name" type="text" id="name" name="name">
+              </div>
+            </div>
             <div class="row">
               <div class="col">
                 <input class="form-control" placeholder="Email Address" type="email" id="email" name="email">
@@ -27,12 +32,17 @@
             </div>
             <div class="row">
               <div class="col">
-                <button class="btn btn-secondary form-button">Login</button>
+                <input class="form-control" placeholder="Confirm Password" type="password" id="confirm" name="confirm">
               </div>
             </div>
             <div class="row">
               <div class="col">
-                <a href="/register">Create account</a>
+                <button class="btn btn-secondary form-button">Register</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <a href="/login">Sign in with an existing account</a>
               </div>
             </div>
           </form>

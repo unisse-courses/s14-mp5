@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/"><span style="font-family: 'Mate SC', serif;">Vanguard</span></a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mx-auto my-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/marketplace">Marketplace</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav my-auto my-lg-0">
+        {{#if loggedIn}}
+          <li class="nav-item">
+            <a class="nav-link" href="/add_new_product"><span class="material-icons">sell</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cart"><span class="material-icons">shopping_cart</span></a>
+            <span class="badge">{{session.cart.totalQty}}</span>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="d-xl-inline">{{username}}</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/profile">Profile</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/logout">Log Out</a>
+            </div>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>

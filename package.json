@@ -1,6 +1,7 @@
 {
-  "name": "handlebars",
+  "name": "s14-mp5",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -8,10 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.4.1",
     "express": "^4.17.1",
-    "express-handlebars": "^3.1.0"
-  },
-  "devDependencies": {},
-  "keywords": [],
-  "description": ""
+    "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.11.1",
+    "mongoose": "^5.12.11",
+    "multer": "^1.4.2"
+  }
 }

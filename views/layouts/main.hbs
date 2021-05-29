@@ -1,177 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <!-- META -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanguard</title>
+    <!-- SCRIPT -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="/js/script.js"></script>
+    <!-- CSS -->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+    <!-- ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>   
-    <link rel="stylesheet" href="css/mystyles.css">
-
-            <script>
-            // // Get current user
-            // var urlParams = new URLSearchParams(window.location.search);
-            // const user = urlParams.get('username');
-
-            // Shopping cart expenses variable
-            var expenses = [];
-            var sum = parseFloat(0); // Total amount
-
-            // Opening individual tabs function
-            function openTab(evt, tabName) {
-                var i, tabcontent, tablinks;
-                tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-                    tabcontent[i].style.display = "none";
-                }
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                    tablinks[i].className = tablinks[i].className.replace(" active", "");
-                }
-                document.getElementById(tabName).style.display = "block";
-                evt.currentTarget.className += " active";
-            }
-
-            /** Shop Menu **/
-            function menu(option) {
-                let options = document.getElementsByClassName("options");
-                for (i = 0; i < options.length; i++) {
-                    options[i].style.display = "none";
-                }
-
-                if(option == "bulletinboard") {
-                    $("#home").addClass("active");
-                    $("#browse").removeClass("active");
-                    $("#sell").removeClass("active");
-                    $("#profile").removeClass("active");
-                    $("#bulletinboard").css("display", "block");
-                    $(".browse-wrapper").css("display", "none");
-                    $(".sell-wrapper").css("display", "none");
-                    $(".profile-wrapper").css("display", "none");
-
-                    let tabcontent = document.getElementsByClassName("tabcontent");
-                    for (i = 0; i < tabcontent.length; i++) {
-                        tabcontent[i].style.display = "none";
-                    }
-                } else if(option == "items") {
-                    $("#home").removeClass("active");
-                    $("#browse").addClass("active");
-                    $("#sell").removeClass("active");
-                    $("#profile").removeClass("active");
-                    $("#bulletinboard").css("display", "none");
-                    $(".browse-wrapper").css("display", "block");
-                    $("#items").css("display", "block");
-                    $("#cart").css("display", "block");
-                    $(".sell-wrapper").css("display", "none");
-                    $(".profile-wrapper").css("display", "none");
-                } else if(option == "sell") {
-                    $("#home").removeClass("active");
-                    $("#browse").removeClass("active");
-                    $("#sell").addClass("active");
-                    $("#profile").removeClass("active");
-                    $("#bulletinboard").css("display", "none");
-                    $(".browse-wrapper").css("display", "none");
-                    $(".sell-wrapper").css("display", "block");
-                    $("#inventory").css("display", "block");
-                    $(".profile-wrapper").css("display", "none");
-                } else if(option == "profile") {
-                    $("#home").removeClass("active");
-                    $("#browse").removeClass("active");
-                    $("#sell").removeClass("active");
-                    $("#profile").addClass("active");
-                    $("#bulletinboard").css("display", "none");
-                    $(".browse-wrapper").css("display", "none");
-                    $(".sell-wrapper").css("display", "none");
-                    $(".profile-wrapper").css("display", "block");
-
-                    let tabcontent = document.getElementsByClassName("tabcontent");
-                    for (i = 0; i < tabcontent.length; i++) {
-                        tabcontent[i].style.display = "none";
-                    }
-                }
-            }
-
-            /** Add to Cart **/
-            $("#addToCart").click(function() {
-                var exp = new expense(/* INSERT ITEM DETAILS */);
-                expenses.push(exp);
-
-                let newItem = $("<div></div>");
-
-
-                // var categ = /*$("#categField")*/.val();
-
-                if(categ == "weapon")
-                    newItem.attr("class", "expenseItem weapon");
-                else if(categ == "armor")
-                    newItem.attr("class", "expenseItem armor");
-                else if(categ == "accessory")
-                    newItem.attr("class", "expenseItem accessory");
-                else if(categ == "material")
-                    newItem.attr("class", "expenseItem material");
-
-                var qty = $("<span></span>");
-                qty.attr("class", "qtycol");
-                qty.text($("#qty").val());
-
-                var item = $("<span></span>");
-                item.attr("class", "itemcol");
-                item.text($("#item").val());
-
-                var amt = parseFloat($("#amount").val());
-                var newamt = amt.toFixed(2);
-                var amount = $("<span></span>");
-                amount.attr("class", "amountcol");
-                amount.text(newamt);
-
-                newItem.append(qty);
-                newItem.append(item);
-                newItem.append(amount);
-
-                $("#list").append(newItem);
-
-                sum = parseFloat(0);
-
-                for(let i = 0; i < expenses.length; i++) {
-                    sum = sum + parseFloat(expenses[i]['amount']);
-                }
-
-                $("#total").html(Number(sum).toFixed(2));
-            })
-
-            /** Reset Comment Box **/
-            function resetCommentBox() {
-                $("#commentBox").val("");
-            }
-
-            /** Post Comment **/
-            function postComment() {
-                let newComment = $("<div></div>")
-                newComment.attr("class", "comment");
-
-                let user = "Someone";
-                let commenter = $("<h2></h2>")
-                commenter.text(user);
-                commenter.css("margin-top", "0px");
-                commenter.css("display", "block");
-                newComment.append(commenter);
-
-                let comment = $("<div></div>")
-                comment.text($("#commentBox").val());
-                newComment.append(comment);
-
-    			$("#comments").append(newComment);
-                resetCommentBox();
-            }
-        </script>
-</head>
-<body>
-    {{> nav}}
-
-    {{{body}}}
-</body>
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    {{> navbar}}
+    <!-- CONTENT -->
+    <div class="container px-0">
+      {{{body}}}
+    </div>
+    <!-- FOOTER -->
+    <footer class="footer footer-section bg-dark">
+      {{> footer}}
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,17 @@
+{{#if products}}
+  <div class="row products">
+    {{#each products}}
+    <div class="col-sm-3 text-center">
+      <a href='/product_details/{{this.slug}}'>
+        <img src="{{this.image}}" height="150px">
+        <p class="mb-0">{{this.name}}</p>
+        <p class="products-price">₱ {{this.price}}</p>
+      </a>
+    </div>
+    {{/each}}
+  </div>
+{{else}}
+  <div class="text-center">
+    <h4>There are no products available.</h4>
+  </div>
+{{/if}}

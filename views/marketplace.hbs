@@ -1,0 +1,48 @@
+<div class="mktplace" id="marketplace">
+  <h1 class="text-center">{{title}}</h1>
+  <br>
+  <div class="row">
+    <div class="col-3">
+      <div class="input-group mt-0 pb-4">
+        <input type="text" class="form-control" placeholder="Search Marketplace" id="searchInput">
+        <div class="input-group-append">
+          <button class="btn btn-secondary btn-search searchButton" type="button">Search</button>
+        </div>
+      </div>
+      <h4>Category:</h4>
+      <div class="list-group-flush w-75 mb-4">
+        <div class="form-check">
+          <input class="form-check-input categoryRadio" name="categoryRadio" type="radio" value="No Filter" id="noFilterRadio">
+          <label for="noFilterRadio" class="form-check-label" value="Erase Filter">All Items</label>
+        </div>
+        <hr class="my-1">
+        {{#each categories}}
+          <div class="form-check">
+            <input class="form-check-input categoryRadio" name="categoryRadio" type="radio" value="{{this}}" id="{{this}}Radio">
+            <label for="{{this}}Radio" class="form-check-label">{{this}}</label>
+          </div>
+        {{/each}}
+      </div>
+      <h4>Arrange by:</h4>
+      <div class="list-group-flush w-75">
+        <div class="form-check">
+          <input class="form-check-input sortRadio" name="sortRadio" type="radio" value="name" id="nameRadio">
+          <label for="nameRadio" class="form-check-label">Name</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input sortRadio" name="sortRadio" type="radio" value="asc" id="ascRadio">
+          <label for="ascRadio" class="form-check-label">Price Ascending</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input sortRadio" name="sortRadio" type="radio" value="desc" id="descRadio">
+          <label for="descRadio" class="form-check-label">Price Descending</label>
+        </div>
+      </div>
+      <!-- Contact Us -->
+      {{> contact-us}}
+    </div>
+    <div class="display-items col-9">
+      {{> display-products}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="container add-prod-container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card border-0">
+        <img src="{{img}}" class="img-fluid" alt="{{alt_text}}">
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <div class="card border-0">
+        <div class="card-body add-prod-card">
+          <div class="row">
+            <div class="col text-center">
+              <h4>Sell an item</h4>
+            </div>
+          </div>
+          {{> messages}}
+          <form class="form-div" id="productForm" action="/add_new_product" method="POST" enctype="multipart/form-data">
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter product name">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" id="desc" name="desc" placeholder="Enter description">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" id="categ" name="categ" placeholder="Enter category">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input type="number" step="any" class="form-control" id="price" name="price" placeholder="Enter price">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="image" class="form-label">Upload Product Image</label>
+                <input type="file" class="custom-file-input" id="image" name="image">
+              </div>
+            </div>
+            <div class="text-center pt-4">
+              <button type="submit" id="productFormSubmit" class="btn btn-secondary form-button">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
