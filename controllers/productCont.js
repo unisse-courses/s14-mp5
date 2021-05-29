@@ -174,7 +174,7 @@ exports.refreshProducts = function(req, res) {
     query.category = req.body.category;
   }
   if (req.body.name && req.body.name != '') {
-    query.name = req.body.name;
+    query.name = {$regex: '.*' + req.body.name + '.*'};
   }
   
   if (req.body.sort && req.body.sort != 'name') {
