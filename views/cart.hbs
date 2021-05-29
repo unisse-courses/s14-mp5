@@ -1,43 +1,70 @@
-<div class="cart" id="cart">
-  <h1 class="text-center">{{title}}</h1>
-  <br>
-<!-- Cart -->
-<section id="cart" class="d-flex align-items-centers">
-  <div class="container">
-    <div class="row">
-      <table class="table-dark">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Quantity</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-<!-- Subtotal -->
-<section id="cart" class="subtotal" style="padding-right: 22%;">
-  <div class="container">
-    <div class="row">
-      <table class="table-dark">
-        <thead>
-          <th>Subtotal</th>
-        </thead>
-        <tbody>
-          <tr></tr>
-        </tbody>
-      </table>
+<section id="cart">
+  <div class="container mt-5">
+    <h4>Vanguard <span class="vl">|</span> {{title}}</h4>
+    <hr>
+    <div class="row pt-6">
+      {{#if products}}
+        <div class="col-7 ps-5">
+          {{#each products}}
+            <div class="row py-3">
+              <div class="col-3">
+                <a href="/product_details/{{this.slug}}">
+                  <img class="img-fluid" src="{{this.image}}">
+                </a>
+              </div>
+              <div class="col-8 pt-3">
+                <a href="/product_details/{{this.slug}}">
+                  <h5><strong>{{this.name}}</strong></h5>
+                </a>
+                <p class="mb-5">Quantity: {{this.qty}}</p>
+                <div class="row">
+                  <div class="col">
+                    <p class="float-start">₱{{this.unitPrice}}</p>
+                  </div>
+                  <div class="col">
+                    <a href="/delete_from_cart/{{this.id}}" class="float-end"><span class="material-icons">remove_shopping_cart</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+        <div class="col-1"></div>
+        <div class="col-4" id="CartBreakdown">
+          <h4 class="text-center py-3 pe-3">Cart Summary</h4>
+          {{#each products}}
+            <div class="row">
+              <div class="col">
+                {{this.qty}}x {{this.name}}
+              </div>
+              <div class="col text-end pe-5">
+                ₱{{this.subPrice}}
+              </div>
+            </div>
+          {{/each}}
+          <div class="row pt-3">
+            <hr>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h5>Total:</h5>
+            </div>
+            <div class="col text-end pe-5">
+              ₱{{total}}
+            </div>
+          </div>
+          <div class="row pt-5" id="checkoutButtons">
+            <div class="text-end">
+              <a href="/checkout" class="btn btn-secondary">Checkout</a>
+            </div>
+          </div>    
+        </div>
+      {{else}}
+        <h4 class="py-4 text-center">Your shopping cart is empty</h4>
+        <div class="container text-center">
+          <a href="/marketplace" class="btn btn-secondary">Go to Marketplace</a>
+        </div>
+      {{/if}}
     </div>
   </div>
 </section>

@@ -16,8 +16,7 @@
             <a class="nav-link" href="/add_new_product"><span class="material-icons">sell</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/cart"><span class="material-icons">shopping_cart</span></a>
-            <span class="badge">{{session.cart.totalQty}}</span>
+            <a class="nav-link" href="/cart"><span class="material-icons">shopping_cart</span><span class="badge">{{session.cart.totalItems}}</span></a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,6 +24,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/profile">Profile</a>
+              <a class="dropdown-item" href="/order_history">Order History</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="/logout">Log Out</a>
             </div>

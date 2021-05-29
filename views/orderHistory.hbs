@@ -1,0 +1,27 @@
+<div class="order-history">
+  <div class="container mt-5">
+    <h4>Vanguard <span class="vl">|</span> {{title}}</h4>
+    <hr>
+    <div class="pt-6 px-2">
+      {{#each orders}}
+        <div class="row m-0 p-3 border border-2 border-dark {{#if @first}} rounded-top {{else}} border-top-0 {{/if}} {{#if @last}} rounded-bottom {{/if}}">
+          <div class="col-2 text-center">
+            <img class="img-fluid" src="{{this.firstImg}}" width="150px">
+          </div>
+          <div class="col-10 py-4">
+            <div class="leftCol-1">
+              <div>Order ID: {{this._id}}</div>
+              <div>Quantity: {{this.totalQty}}</div>
+              <div class="pt-3">Ordered on: {{this.orderDate}}</div>
+            </div>
+            <div class="rightCol-2">
+              <div><strong>₱ {{this.totalPrice}}</strong></div>
+              <div>Status: {{this.status}}</div>
+              <div class="pt-2"><a href="/order_details/{{this._id}}" class="btn btn-secondary">View Details</a></div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

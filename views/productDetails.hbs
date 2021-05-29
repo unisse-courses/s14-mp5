@@ -1,6 +1,9 @@
 <div class="product-details">
+  <div class="container pt-5">
+    {{> messages}}
+  </div>
   <div class="container card">
-    <div class="row mt-5">
+    <div class="row">
       <div class="col-sm-5">
           <div>
             <img src="{{image}}" width="450px">
@@ -31,7 +34,7 @@
             </div>
             <!-- Buttons -->
             <div class="container text-end">
-              <button class="btn btn-secondary rounded-circle">
+              <button class="btn btn-secondary rounded-circle" id="btnCart">
                 <span class="material-icons">add_shopping_cart</span>
               </button>
             </div>

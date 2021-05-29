@@ -47,9 +47,11 @@ app.use(function(req, res, next) {
 // routes
 const userRouter = require('./routes/userRoutes');
 const authRouter = require('./routes/authRoutes');
+const cartRouter = require('./routes/cartRoutes');
 
 app.use('/', userRouter);
 app.use('/', authRouter);
+app.use('/', cartRouter);
 
 app.get('/marketplace', function(req, res){
   res.render('marketplace', {
