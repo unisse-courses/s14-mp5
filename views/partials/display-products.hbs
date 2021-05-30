@@ -2,7 +2,7 @@
   <div class="row products">
     {{#each products}}
     <div class="col-sm-3 text-center">
-      <a href='/product_details/{{this.slug}}'>
+      <a href='/product_details/{{this.slug}}' class="text-decoration-none">
         <img src="{{this.image}}" height="150px">
         <p class="mb-0">{{this.name}}</p>
         <p>₱ {{this.price}}</p>

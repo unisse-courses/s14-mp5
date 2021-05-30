@@ -1,15 +1,17 @@
 {{#if products}}
-  {{#each products}}
-  <div>
-    <a href='/product_details/{{this.slug}}'>
-      <img src={{this.image}} height="250px">
-      <p class="mb-0">{{this.name}}</p>
-      <p class="products-price">₱ {{this.price}}</p>
-    </a>
+  <div class="row">
+    {{#each products}}
+    <div class="col-sm-3">
+      <a href='/product_details/{{this.slug}}' class="text-decoration-none">
+        <img src="{{this.image}}" height="200px">
+        <p class="mb-0">{{this.name}}</p>
+        <p class="products-price">₱ {{this.price}}</p>
+      </a>
+    </div>
+    {{/each}}
   </div>
-  {{/each}}
 {{else}}
   <div class="container text-center mb-4">
-    <h6>Stay tuned for limited products!</h6>
+    <h6>Stay tuned for limited offers!</h6>
   </div>
 {{/if}}

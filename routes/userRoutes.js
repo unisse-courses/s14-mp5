@@ -49,9 +49,19 @@ router.post('/checkout', isPrivate, orderController.checkout);
 
 // Order History
 router.get('/order_history', isPrivate, orderController.getOrderHistory);
-
 // Order Details
 router.get('/order_details/:slug', isPrivate, orderController.getOrderDetails);
+
+// Product Management
+router.get('/view_listing', isPrivate, productController.getMyProducts);
+router.get('/hide_item/:_id', isPrivate, productController.hideItem);
+router.get('/unhide_item/:_id', isPrivate, productController.unhideItem);
+router.get('/limited_item/:_id', isPrivate, productController.limitedItem);
+router.get('/unlimited_item/:_id', isPrivate, productController.unlimitedItem);
+router.get('/delete_item/:_id', isPrivate, productController.deleteProduct);
+router.get('/edit_item/:_id', isPrivate, productController.getProduct);
+router.post('/edit_item/:_id', isPrivate, upload.single('image'), productController.editProduct);
+
 
 // Profile GET method
 router.get('/profile', isPrivate, function(req, res) {

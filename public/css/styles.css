@@ -16,6 +16,10 @@ a {
   color:rgb(192, 192, 192);
 }
 
+a:hover{
+  color: #59646e;
+}
+
 .vl {
   font-size: calc(1.275rem + 0.3vw);
 }
@@ -27,6 +31,11 @@ a {
 .w-35 {
   width: 35%;
 }
+
+.w-15 {
+  width: 15%;
+}
+
 .form-control {
   border-radius: 50px !important;
   background-color: black !important;
@@ -216,10 +225,6 @@ a {
   margin-bottom: 1rem;
   display: table-cell;
 }
-
-.login-card a:hover{
-  color: #59646e;
-}
 /* End Login */
 
 /* Register */
@@ -236,10 +241,6 @@ a {
 .register-card .col {
   margin-bottom: 1rem;
   display: table-cell;
-}
-
-.register-card a:hover{
-  color: #59646e;
 }
 /* End Register */
 
@@ -300,6 +301,12 @@ a {
   padding-right: 2rem;
 }
 /* End Checkout Screen */
+
+/* Edit Product */
+#editProduct .form-control {
+  border-radius: 0.5rem !important;
+}
+/* End Edit Product */
 
 /* Profile */
 .prfile h1 {

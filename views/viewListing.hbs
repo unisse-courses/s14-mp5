@@ -1,0 +1,45 @@
+<section id="listing">
+  <div class="container mt-5">
+    <h4>{{title}}</h4>
+    <hr>
+    {{> messages}}
+    <div class="row pt-6">
+      {{#if products}}
+        <div class="container px-5">
+          {{#each products}}
+            <div class="row py-3 {{#if @first}} border-top-0 {{else}} border-top border-dark {{/if}}">
+              <div class="col-2">
+                {{this.name}}
+              </div>
+              <div class="col-6">
+                {{this.description}}
+              </div>
+              <div class="col-2">
+                ₱ {{this.price}}
+              </div>
+              <div class="col-2 text-end">
+                {{#if this.limited}}
+                  <a href="/unlimited_item/{{this._id}}"><span class="material-icons">remove_from_queue</span></a>
+                {{else}}
+                  <a href="/limited_item/{{this._id}}"><span class="material-icons">add_to_queue</span></a>
+                {{/if}}
+                {{#if this.hidden}}
+                  <a href="/unhide_item/{{this._id}}"><span class="material-icons">unarchive</span></a>
+                {{else}}
+                  <a href="/hide_item/{{this._id}}"><span class="material-icons">archive</span></a>
+                {{/if}}
+                <a href="/edit_item/{{this._id}}"><span class="material-icons">edit</span></a>
+                <a href="/delete_item/{{this._id}}"><span class="material-icons">delete</span></a>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      {{else}}
+        <h4 class="py-4 text-center">No products available</h4>
+        <div class="container text-center">
+          <a href="/add_new_product" class="btn btn-secondary">Sell a Product</a>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</section>

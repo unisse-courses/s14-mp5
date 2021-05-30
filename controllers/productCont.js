@@ -53,6 +53,7 @@ exports.addProduct = function(req, res) {
       }
       else {
         const newProduct = {
+          seller: req.session.name,
           name: name,
           slug: slug,
           description: desc,
@@ -231,9 +232,214 @@ exports.getAProduct = function(req, res) {
   });
 }
 
+// Get user's product listing
+exports.getMyProducts = function(req, res) {
+  productModel.getMany({seller: req.session.name}, {name: 1}, function(err, products) {
+    products.forEach(function(item) {
+      item.price = (item.price).toFixed(2);
+    })
+    res.render('viewListing', {
+      username: req.session.name,
+      title: 'My Products',
+      products: products,
+      loggedIn: req.session.user
+    });
+  });
+};
+
+// Hide a product
+exports.hideItem = function(req, res) {
+  var product_id = req.params._id;
+
+  productModel.getOne({_id: product_id}, function(err, product) {
+    if(err) {
+      req.flash('error_msg', "Something went wrong. Please try again.");
+      res.redirect('/view_listing');
+    }
+    else {
+      productModel.hide(product_id, function(err, result) {
+        if(err) {
+          req.flash('error_msg', "Something went wrong. Please try again.");
+          res.redirect('/view_listing');
+        }
+        else {
+          req.flash('success_msg', "Successfully hidden an item!");
+          res.redirect('/view_listing');
+        }
+      });
+    }
+  });
+};
+
+// Unhide a product
+exports.unhideItem = function(req, res) {
+  var product_id = req.params._id;
+
+  productModel.getOne({_id: product_id}, function(err, product) {
+    if(err) {
+      req.flash('error_msg', "Something went wrong. Please try again.");
+      res.redirect('/view_listing');
+    }
+    else {
+      productModel.unhide(product_id, function(err, result) {
+        if(err) {
+          req.flash('error_msg', "Something went wrong. Please try again.");
+          res.redirect('/view_listing');
+        }
+        else {
+          req.flash('success_msg', "Successfully unhidden an item!");
+          res.redirect('/view_listing');
+        }
+      });
+    }
+  });
+};
+
+// Mark a product as limited
+exports.limitedItem = function(req, res) {
+  var product_id = req.params._id;
+
+  productModel.getOne({_id: product_id}, function(err, product) {
+    if(err) {
+      req.flash('error_msg', "Something went wrong. Please try again.");
+      res.redirect('/view_listing');
+    }
+    else {
+      productModel.limited(product_id, function(err, result) {
+        if(err) {
+          req.flash('error_msg', "Something went wrong. Please try again.");
+          res.redirect('/view_listing');
+        }
+        else {
+          req.flash('success_msg', "Successfully marked an item as limited!");
+          res.redirect('/view_listing');
+        }
+      });
+    }
+  });
+};
+
+// Unmark a product as limited
+exports.unlimitedItem = function(req, res) {
+  var product_id = req.params._id;
+
+  productModel.getOne({_id: product_id}, function(err, product) {
+    if(err) {
+      req.flash('error_msg', "Something went wrong. Please try again.");
+      res.redirect('/view_listing');
+    }
+    else {
+      productModel.unlimited(product_id, function(err, result) {
+        if(err) {
+          req.flash('error_msg', "Something went wrong. Please try again.");
+          res.redirect('/view_listing');
+        }
+        else {
+          req.flash('success_msg', "Successfully unmarked an item as limited!");
+          res.redirect('/view_listing');
+        }
+      });
+    }
+  });
+};
+
+// Delete a Product
+exports.deleteProduct = function(req, res) {
+  var product_id = req.params._id;
+  productModel.getOne({_id: product_id}, function(err, product) {
+    if(err) {
+      console.log(err);
+    }
+    else {
+      productModel.removeProduct({_id: product_id}, function(err, product) {
+        if(err) {
+          console.log(err);
+        }
+        else {
+          req.flash('success_msg', 'Successfully removed a product!');
+          res.redirect('/view_listing');
+        }
+      })
+    }
+  });
+};
+
+// Get a product then display its details
+exports.getProduct = function(req, res) {
+  var product_id = req.params._id;
+  productModel.getById({_id: product_id}, function(err, product) {
+    if(err) {
+      console.log(err);
+    }
+    else {
+      res.render('editProduct', {
+        title: 'Edit Product Details',
+        id: product_id,
+        name: product.name,
+        desc: product.description,
+        categ: product.category,
+        price: product.price,
+        image: product.image
+      });
+    }
+  });
+};
+
+// Edit a Product
+exports.editProduct = function(req, res) {
+  var image;
+  var {name, desc, categ, price} = req.body;
+  var slug = req.body.name.replace(/\s+/g, '-').toLowerCase();
+  var product_id = req.params._id;
+
+  productModel.getOne({_id: product_id}, function(err, product) {
+    if(err) {
+      req.flash('error_msg', "Product not found.");
+      res.redirect('/view_listing');
+    }
+    else {
+      if(product) {
+        if(name == "") {
+          name = product.name;
+          slug = product.slug;
+        }
+        if(desc == "") {
+          desc = product.description;
+        }
+        if(categ == "") {
+          categ = product.category;
+        }
+        if(price == "") {
+          price = product.price;
+        }
+        else {
+          price = Math.round(price * 100) / 100.0;
+        }
+        if(req.file == undefined || req.file == null || req.file == "") {
+          image = product.image;
+        }
+        else {
+          image = "uploads/" + req.file.originalname;
+        }
+
+        productModel.updateItem(product_id, name, slug, desc, categ, price, image, function(err, result) {
+          if(err) {
+            req.flash('error_msg', "There was a problem updating product details. Please try again.");
+            res.redirect('/edit_item/' + product_id);
+          }
+          else {
+            req.flash('success_msg', "Successfully updated product details of " + name + ".");
+            res.redirect('/edit_item/' + product_id);
+          }
+        });
+      }
+    }
+  });
+};
+
 // display limited product
 exports.displayLimitedItems = function(req, res) {
-  productModel.getMany({feature: true, archive: false}, {pName: 1}, (err, products) => {
+  productModel.getMany({limited: true, hidden: false}, {pName: 1}, function(err, products) {
     res.render('home', {
       username: req.session.name,
       title: 'Vanguard',

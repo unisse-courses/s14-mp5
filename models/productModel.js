@@ -3,6 +3,7 @@ const mongoose = require('./connection');
 
 // Initialize new user schema
 const productSchema = new mongoose.Schema({
+  seller: {type: String, required: true},
   name: {type: String, required: true},
   slug: {type: String},
   description: {type: String, required: true},
@@ -85,6 +86,41 @@ exports.limited = function(id, next) {
 exports.unlimited = function(id, next) {
   productModel.updateOne({_id: id}, {$set: {limited: false}}, function(err,result) {
     if(err) throw err;
+    next(err, result);
+  });
+};
+
+// Hide item
+exports.hide = function(id, next) {
+  productModel.updateOne({_id: id}, {$set: {hidden: true}}, function(err,result) {
+    if(err) throw err;
+    next(err, result);
+  });
+};
+
+// Unhide item
+exports.unhide = function(id, next) {
+  productModel.updateOne({_id: id}, {$set: {hidden: false}}, function(err,result) {
+    if(err) throw err;
+    next(err, result);
+  });
+};
+
+// Update details of a specific product
+exports.updateItem = function(id, name, slug, desc, categ, price, image, next) {
+  productModel.updateOne({_id: id}, 
+    {$set: {name: name, slug: slug, description: desc, category: categ, price: price, image: image}}, 
+    function (err,result) {
+      if(err) throw err;
+      next(err, result);
+    }
+  );
+};
+
+// Delete a product
+exports.removeProduct = function(id, next) {
+  productModel.deleteOne(id, function(err, result) {
+    if (err) throw err;
     next(err, result);
   });
 };
