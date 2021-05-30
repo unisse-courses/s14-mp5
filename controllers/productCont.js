@@ -21,6 +21,11 @@ const upload = multer({
 // add a new product
 exports.addProduct = function(req, res) {
   const errors = validationResult(req);
+  console.log(req.body.name);
+  console.log(req.body.desc);
+  console.log(req.body.categ);
+  console.log(req.body.price);
+  console.log(errors);
   if(errors.isEmpty()) {
     // prep product info
     var image;
@@ -57,12 +62,15 @@ exports.addProduct = function(req, res) {
           hidden: false,
           image: image
         };
+        console.log(newProduct);
         productModel.create(newProduct, function(err, product) {
           if(err) {
+            console.log("Fail");
             req.flash('error_msg', 'Could not create product.');
             res.redirect('/add_new_product');
           }
           else {
+            console.log("Pass");
             req.flash('success_msg', 'Successfully added a new product.')
             res.redirect('/add_new_product');
           }

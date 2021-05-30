@@ -27,19 +27,7 @@ const registerValidation = [
   })
 ];
 
-const productValidation = [
-  // Product name should not be empty
-  body('name').notEmpty().withMessage('Product name is required.'),
-  // Product description should not be empty
-  body('desc').notEmpty().withMessage('Product description is required.'),
-  // Product name should not be empty
-  body('categ').notEmpty().withMessage('Product category is required.'),
-  // Product name should not be empty
-  body('price').notEmpty().withMessage('Product price is required.')
-];
-
 module.exports = {
   loginValidation,
-  registerValidation,
-  productValidation
+  registerValidation
 };

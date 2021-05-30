@@ -41,7 +41,7 @@ router.get('/add_new_product', isPrivate, function(req, res) {
     alt_text: 'Vanguard logo'
   });
 });
-router.post('/add_new_product', isPrivate, productValidation, upload.single('image'), productController.addProduct);
+router.post('/add_new_product', isPrivate, upload.single('image'), productController.addProduct);
 
 // Checkout
 router.get('/checkout', isPrivate, cartController.checkout);
