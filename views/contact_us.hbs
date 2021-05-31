@@ -1,0 +1,34 @@
+
+<div class="contact-staff">
+    <div class="row">
+        <div class="leftCol">
+            <div class="card border-0">
+                <img src="{{img}}" class="img-fluid" alt="{{alt_text}}">
+            </div>
+        </div>
+        <div class="rightCol">
+            <div class="row">
+                <h4 class="text-center" style="margin-top: 50px">{{title}}</h4>
+                <div class="contact-container">
+                    <form action="/contact">
+
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+                        <label for="country">Country</label>
+                        <input type="text" id="country" name="country" placeholder="Your country..">
+
+                        <label for="subject">Subject</label>
+                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+                        <input class="btn btn-primary" role="button" type="submit" value="Submit">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

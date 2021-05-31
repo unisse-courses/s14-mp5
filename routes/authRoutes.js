@@ -14,6 +14,15 @@ router.get('/login', isPublic, function(req, res) {
   });
 });
 
+// Contact Us GET method
+router.get('/contact_us', isPublic, function(req, res) {
+  res.render('contact_us', {
+    title: 'Contact Us',
+    img: '/images/Vanguard.png',
+    alt_text: 'Vanguard Logo',
+  });
+});
+
 // Register GET method
 router.get('/register', isPublic, function(req, res) {
   res.render('register', {
