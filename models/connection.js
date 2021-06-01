@@ -1,8 +1,8 @@
 // imports
 const mongoose = require('mongoose');
+const {dbURL} = require('../config');
 
 // config
-const dbURL= "mongodb+srv://admin:1234@vanguarddb.gnxke.mongodb.net/vanguard?retryWrites=true&w=majority";
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,

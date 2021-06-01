@@ -6,10 +6,12 @@ const mongoose = require('./models/connection');
 const session = require('express-session');
 const flash = require('connect-flash');
 const MongoStore = require('connect-mongo');
+const {envPort, sessionKey} = require('./config');
 
 // express application
 const app = express();
-const port = 5000;
+const port = envPort || 9090; // deployment
+// const port = 5000;
 
 // express-handlebars view engine
 app.engine('hbs', hbs({
@@ -25,7 +27,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // declare sessions - server config
 app.use(session({
-  secret: 'somegibberishsecret',
+  // secret: 'somegibberishsecret',
+  secret: sessionKey, // deployment
   store: MongoStore.create({mongoUrl: "mongodb+srv://admin:1234@vanguarddb.gnxke.mongodb.net/vanguard?retryWrites=true&w=majority"}),
   resave: false,
   saveUninitialized: true,
