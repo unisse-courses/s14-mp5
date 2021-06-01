@@ -121,7 +121,7 @@ exports.editProduct = (req, res) => {
           image = product.image;
         }
         else {
-          image = "uploads/" + req.file.originalname;
+          image = "/uploads/" + req.file.originalname;
         }
 
         productModel.updateItem(product_id, name, slug, desc, categ, price, image, function(err, result) {

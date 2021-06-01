@@ -104,26 +104,10 @@ exports.getMyProfile = function(req, res) {
       profModel.getAll({recipient: user.name}, function(err, comments) {
         res.render('profile', {
           title: 'Profile',
-          username: user.name,
+          name: user.name,
           image: '/uploads/defaultAvatar.png',
           comments: comments,
-          loggedIn: req.session.user
-        });
-      });
-    }
-  });
-}
-
-exports.getMyProfile = function(req, res) {
-  const name = req.params.username;
-  userModel.getOne({name: name}, function(err, user) {
-    if(user) {
-      profModel.getAll({recipient: user.name}, function(err, comments) {
-        res.render('profile', {
-          title: 'Profile',
-          username: user.name,
-          image: '/uploads/defaultAvatar.png',
-          comments: comments,
+          username: req.session.name,
           loggedIn: req.session.user
         });
       });
@@ -138,9 +122,10 @@ exports.getAProfile = function(req, res) {
       profModel.getAll({recipient: user.name}, function(err, comments) {
         res.render('profile', {
           title: 'Profile',
-          username: user.name,
+          name: user.name,
           image: '/uploads/defaultAvatar.png',
           comments: comments,
+          username: req.session.name,
           loggedIn: req.session.user
         });
       });

@@ -14,7 +14,7 @@
       </div>
       <div class="row ps-4">
         <div class="col-10 text-center">
-          <p>{{username}}</p>
+          <p>{{name}}</p>
         </div>
       </div>
       <div class="row ps-4 pt-4">
@@ -22,7 +22,7 @@
         <hr style="width: 85%;"></div>
       <div class="row pb-2">
         {{> messages}}
-        <form action="/add_comment/{{username}}" method="POST">
+        <form action="/add_comment/{{name}}" method="POST">
           <div class="container pt-2">
             <div class="row">
               <textarea name="commentBox" id="commentBox" cols="50" rows="4" style="width: 88%;"></textarea>
