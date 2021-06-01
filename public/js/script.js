@@ -2,7 +2,8 @@ function changedRadio() {
   $.post('/marketplace/', {
     category: $('input[name="categoryRadio"]:checked').val(), 
     sort: $('input[name="sortRadio"]:checked').val(),
-    name: $('input[id="searchInput"]').val()
+    name: $('input[id="searchInput"]').val(),
+    seller: $('input[id="searchInput-2"]').val()
   }, function(result){
     $(".display-items").html(result);
   });

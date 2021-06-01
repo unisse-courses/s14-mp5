@@ -318,7 +318,7 @@ nav .btn {
   height: 38px;
 }
 
-.mktplace #searchInput {
+.mktplace #searchInput, #searchInput-2 {
   border-radius: 25px 0px 0px 25px !important;
 }
 /* End Marketplace */

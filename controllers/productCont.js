@@ -185,6 +185,9 @@ exports.refreshProducts = function(req, res) {
   if (req.body.name && req.body.name != '') {
     query.name = {$regex: '.*' + req.body.name + '.*'};
   }
+  if (req.body.seller && req.body.seller != '') {
+    query.seller = {$regex: '.*' + req.body.seller + '.*'};
+  }
   
   if (req.body.sort && req.body.sort != 'name') {
     if (req.body.sort == "asc") {
