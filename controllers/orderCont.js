@@ -47,7 +47,7 @@ exports.checkout = function(req, res) {
                 res.render('/cart', {
                   username: req.session.name,
                   title: "My Cart", 
-                  loggedIn: user,
+                  loggedIn: req.session.user,
                   products: cart.products
                 });
               }

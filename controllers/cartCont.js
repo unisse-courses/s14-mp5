@@ -61,7 +61,7 @@ exports.getUserCart = function(req, res) {
         res.render('cart', {
           username: req.session.name,
           title: "Shopping Cart", 
-          loggedIn: user,
+          loggedIn: req.session.user,
           products: result.products,
           total: result.total
         });
@@ -71,7 +71,7 @@ exports.getUserCart = function(req, res) {
         res.render('cart', {
           username: req.session.name,
           title: "Shopping Cart", 
-          loggedIn: user,
+          loggedIn: req.session.user,
           products: null
         });
       }
@@ -91,7 +91,7 @@ exports.checkout = function(req, res) {
         res.render('checkout', {
           username: req.session.name,
           title: "Checkout", 
-          loggedIn: user,
+          loggedIn: req.session.user,
           products: result.products,
           total: result.total
         });
@@ -101,7 +101,7 @@ exports.checkout = function(req, res) {
         res.render('checkout', {
           username: req.session.name,
           title: "Checkout", 
-          loggedIn: user,
+          loggedIn: req.session.user,
           products: null,
           total: 0
         });

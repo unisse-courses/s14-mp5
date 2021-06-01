@@ -379,7 +379,9 @@ exports.getProduct = function(req, res) {
         desc: product.description,
         categ: product.category,
         price: product.price,
-        image: product.image
+        image: product.image,
+        username: req.session.name,
+        loggedIn: req.session.user
       });
     }
   });
@@ -419,7 +421,7 @@ exports.editProduct = function(req, res) {
           image = product.image;
         }
         else {
-          image = "uploads/" + req.file.originalname;
+          image = "/uploads/" + req.file.originalname;
         }
 
         productModel.updateItem(product_id, name, slug, desc, categ, price, image, function(err, result) {
