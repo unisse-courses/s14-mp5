@@ -1,15 +1,46 @@
 # Vanguard
 
-Vanguard is a fictional company from the Korean Webnovel "Everyone Else is a Returnee" (or EER for shorter). The Earth in the novel experienced an evolution of some sort which they called the "Great Cataclysm", because of that 'mana' become naturally produced on the planet which is a charactertic of a higher form of a world. By the existince of mana, different changes happened at the entire world; people become stronger by wielding it mana, others become Hunters that fights off monster that was either produced naturally or mutated the existing wildlife around the globe.
+Vanguard is a weapon and armor manufacturing company that sells quality equipments to other Hunters and also serves as an avenue for them to trade their items.
 
-Vanguard is a weapon and armor manufacturing company that sells quality equipments to other Hunters in prices that the protagonist of the novel decided everyone could afford for. The reason behind the establishing of Vanguard was because the protagonist deemed that other Hunters use such a shabby equipment that puts their own lives more at risk. The protagonist which is both a skilled Hunter, and a Craftsman with high level skills in both Blacksmithing and Mana Crafting decided to supply the other Hunters with high quality equipments so that they could at least catch up to him and help him fight at the frontlines.
-
-## Members
+# Team Members
 * Chua, Kerby
 * Oliquino, Alfred
 
-## Running the application
-1. Clone the repository
-2. Install the dependencies: `npm install`
-3. Start the application: `node index.js`
-4. This repo works on an instance running on `localhost:3000`
+# Usage
+Visitors may opt to access the web application in two ways: local or through the deployed URL
+
+## Heroku deployment
+To access the web application, you may visit [Vanguard](https://ccapdev-vanguard.herokuapp.com/) here
+
+## Local instance
+#### Step 0: Pre-requisites
+Install [Node.js](https://nodejs.org/en/)
+
+Clone the repository and navigate to it
+- Method 1: GitHub CLI
+`gh repo clone unisse-courses/s14-mp5`
+- Method 2: HTTPS
+`git clone https://github.com/unisse-courses/s14-mp5.git`
+- Method 3: GitHub Desktop
+
+Create a `.env` file with the following content:
+```
+PORT=3000
+MONGODB_URL="mongodb+srv://admin:1234@vanguarddb.gnxke.mongodb.net/vanguard?retryWrites=true&w=majority"
+SESSION_SECRET=somegibberishsecret
+```
+
+Uncomment lines 1 and 2 of `config.js` by removing the `/`
+```
+const dotenv = require('dotenv');
+dotenv.config();
+```
+
+#### Step 1: Install web application dependencies
+For Windows users: open command prompt on the application directory and run `npm install`
+
+#### Step 2: Start an instance of the web application
+On the same terminal, run `node index.js`
+
+### And you're done!
+Access the web application via [localhost:3000](localhost:3000)
