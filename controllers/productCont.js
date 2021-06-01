@@ -21,11 +21,11 @@ const upload = multer({
 // add a new product
 exports.addProduct = function(req, res) {
   const errors = validationResult(req);
-  console.log(req.body.name);
-  console.log(req.body.desc);
-  console.log(req.body.categ);
-  console.log(req.body.price);
-  console.log(errors);
+  // console.log(req.body.name);
+  // console.log(req.body.desc);
+  // console.log(req.body.categ);
+  // console.log(req.body.price);
+  // console.log(errors);
   if(errors.isEmpty()) {
     // prep product info
     var image;

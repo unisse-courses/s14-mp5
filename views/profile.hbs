@@ -1,31 +1,54 @@
 <div class="Prof" id="profi">
-<h1 class="text-center">{{title}}</h1>
-        <br>
-        <div class="leftCol">
-        <h3 class="text-center">User Details</h3>
-        <br>    
-        <div class="prof-card">
-            <section id="profile-details" class="d-flex align-items-center">
-                <div class="container">
-                    <div clas="row" style="padding-top: 10px; padding-bottom: 10px;">
-                        <table style="margin-left: auto; margin-right: auto;">
-                            <tr>
-                                <th>Name: </th>
-                                <td><span class="d-xl-inline">{{username}}</span></td>
-                            </tr>
-                            <tr>
-                                <th>Email: </th>
-                                <td><span class="d-xl-inline">{{email}}</span></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </section>
+  <div class="container mt-5">
+    <h4>{{title}}</h4>
+    <hr>
+    <div class="leftCol pt-3">
+      <div class="row ps-4">
+        <h6 class="text-white-50">Account Information</h6>
+        <hr style="width: 85%;">
+      </div>
+      <div class="row ps-4">
+        <div class="col-10 text-center">
+          <img src="{{image}}" height="200px">
         </div>
-    </div>
-    <div class="rightCol">
-        <div class="profile comments">
-            <h3 class="text-center">Comments</h3>
+      </div>
+      <div class="row ps-4">
+        <div class="col-10 text-center">
+          <p>{{username}}</p>
         </div>
+      </div>
+      <div class="row ps-4 pt-4">
+        <h6 class="text-white-50">Post a comment</h6>
+        <hr style="width: 85%;"></div>
+      <div class="row pb-2">
+        {{> messages}}
+        <form action="/add_comment/{{username}}" method="POST">
+          <div class="container pt-2">
+            <div class="row">
+              <textarea name="commentBox" id="commentBox" cols="50" rows="4" style="width: 88%;"></textarea>
+            </div>
+            <div class="row">
+              <div class="col-11 text-end pe-4">
+                <button class="btn btn-secondary form-button">Post</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+    <div class="rightCol pt-3">
+      {{#each comments}}
+        <div class="container pb-3">
+          <div class="row ps-3">
+            {{!-- <em>Anonymous says...</em> --}}
+            <em>{{this.op}} says...</em>
+          </div>
+          <div class="row ps-5 pt-1">
+            {{this.comment}}
+            {{!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus ex lobortis enim congue hendrerit. Aliquam ante dolor, pellentesque at mi vel, gravida pretium eros. Nulla facilisi. --}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
 </div>

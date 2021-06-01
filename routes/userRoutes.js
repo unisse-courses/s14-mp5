@@ -3,7 +3,7 @@ const router = require('express').Router();
 const cartController = require('../controllers/cartCont');
 const productController = require('../controllers/productCont');
 const orderController = require('../controllers/orderCont');
-const {productValidation} = require('../public/js/validators.js')
+const userController = require('../controllers/userCont');
 const {isPublic, isPrivate} = require('../middlewares/auth.js');
 const multer = require('multer');
 
@@ -64,16 +64,9 @@ router.post('/edit_item/:_id', isPrivate, upload.single('image'), productControl
 
 
 // Profile GET method
-router.get('/profile', isPrivate, function(req, res) {
-  res.render('profile', {
-    title: 'Profile',
-    username: req.session.name,
-    loggedIn: req.session.user,
-    email: req.session.email,
-    img: '/images/Vanguard.png',
-    alt_text: 'Vanguard Logo',
-  });
-});
+router.get('/profile/:username', isPrivate, userController.getMyProfile);
+router.post('/view_profile', isPrivate, userController.getAProfile);
+router.post('/add_comment/:username', isPrivate, userController.postComment);
 
 // export entire module
 module.exports = router;

@@ -49,3 +49,18 @@ $(function() {
     }
   });
 });
+
+$(function() {
+  $('#search-button').on('click', function(e) {
+    if($('#search-input-container').hasClass('hdn')) {
+      $('#search-button').html('<span class="material-icons" aria-hidden="true">search_off</span>');
+      $('#search-input-container').removeClass('hdn');
+      return false;
+    }
+    else {
+      $('#search-button').html('<span class="material-icons" aria-hidden="true">search</span>');
+      $('#search-input-container').addClass('hdn')
+      return false;
+    }
+  });
+});

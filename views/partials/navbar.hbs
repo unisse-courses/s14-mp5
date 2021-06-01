@@ -18,12 +18,18 @@
           <li class="nav-item">
             <a class="nav-link" href="/cart"><span class="material-icons">shopping_cart</span><span class="badge">{{session.cart.totalItems}}</span></a>
           </li>
+          <form class="navbar-form-search" role="search" action="/view_profile" method="POST">
+            <div class="search-form-container hdn" id="search-input-container">
+              <input type="text" class="form-control" placeholder="Hunter name" name="name" id="name">
+            </div>
+            <a class="nav-link" id="search-button"><span class="material-icons" aria-hidden="true">search</span></a>
+          </form>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
               <span class="d-xl-inline">{{username}}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/profile">Profile</a>
+              <a class="dropdown-item" href="/profile/{{username}}">Profile</a>
               <a class="dropdown-item" href="/order_history">Order History</a>
               <a class="dropdown-item" href="/view_listing">My Products</a>
               <div class="dropdown-divider"></div>

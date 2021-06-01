@@ -1,6 +1,7 @@
 // imports
 const bcrypt = require('bcrypt');
 const userModel = require('../models/userModel');
+const profModel = require('../models/profModel');
 const {validationResult} = require('express-validator');
 
 // user logs out
@@ -95,3 +96,77 @@ exports.registerUser = function(req, res) {
     res.redirect('/register');
   }
 };
+
+exports.getMyProfile = function(req, res) {
+  const name = req.params.username;
+  userModel.getOne({name: name}, function(err, user) {
+    if(user) {
+      profModel.getAll({recipient: user.name}, function(err, comments) {
+        res.render('profile', {
+          title: 'Profile',
+          username: user.name,
+          image: '/uploads/defaultAvatar.png',
+          comments: comments,
+          loggedIn: req.session.user
+        });
+      });
+    }
+  });
+}
+
+exports.getMyProfile = function(req, res) {
+  const name = req.params.username;
+  userModel.getOne({name: name}, function(err, user) {
+    if(user) {
+      profModel.getAll({recipient: user.name}, function(err, comments) {
+        res.render('profile', {
+          title: 'Profile',
+          username: user.name,
+          image: '/uploads/defaultAvatar.png',
+          comments: comments,
+          loggedIn: req.session.user
+        });
+      });
+    }
+  });
+}
+
+exports.getAProfile = function(req, res) {
+  const {name} = req.body;
+  userModel.getOne({name: name}, function(err, user) {
+    if(user) {
+      profModel.getAll({recipient: user.name}, function(err, comments) {
+        res.render('profile', {
+          title: 'Profile',
+          username: user.name,
+          image: '/uploads/defaultAvatar.png',
+          comments: comments,
+          loggedIn: req.session.user
+        });
+      });
+    }
+  });
+}
+
+exports.postComment = function(req, res) {
+  const comment = req.body.commentBox;
+  const recipient = req.params.username;
+
+  const newComment = {
+    op: req.session.name,
+    comment: comment,
+    recipient: recipient
+  }
+
+  profModel.create(newComment, function(err, result) {
+    if(err) {
+      req.flash('error_msg', 'Could not post the comment');
+      res.redirect('/profile/' + recipient);
+    }
+    else {
+      const msg = 'You commented on ' + recipient + "'s profile"
+      req.flash('success_msg', msg);
+      res.redirect('/profile/' + recipient);
+    }
+  });
+}

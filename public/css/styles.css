@@ -86,6 +86,37 @@ a:hover{
 }
 /* End Fonts */
 
+/* Navbar */
+nav .navbar-form-search {
+  position: relative;
+}
+ 
+nav .btn {
+  border: 0;
+  background: transparent;
+  font-size: 1rem;
+}
+
+.search-form-container {
+  position: absolute;
+  width: 300px;
+  overflow: hidden;
+  background: #212529 !important;
+  right: 40px;
+  top: 0;
+  z-index: 9;
+  transition: all .3s ease-in-out;
+}
+
+*.hdn {
+  width: 0;
+}
+  
+.search-input-group {
+  width: 300px;
+}
+/* End Navbar */
+
 /* Footer */
 .footer {
   position: fixed;
@@ -340,6 +371,11 @@ a:hover{
   margin: auto;
   background-color:  #555a61;
   border-radius: 25px;
+}
+
+#commentBox {
+  background-color: #555a61;
+  color: #ececec;
 }
 /* End Profile */
 
