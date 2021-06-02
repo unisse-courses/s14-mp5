@@ -44,3 +44,25 @@ On the same terminal, run `node index.js`
 
 ### And you're done!
 Access the web application via [localhost:3000](localhost:3000)
+
+## Login credentials
+Account No. 1:
+```
+Email address: dummy@email.com
+Password: password123
+```
+Account No. 2:
+```
+Email address: seandoe@mnemosis.com
+Password: password
+```
+Account No. 3:
+```
+Email address: pringles@email.com
+Password: 12345678
+```
+Account No. 4:
+```
+Email address: techilog@email.com
+Password: pass1234
+```
